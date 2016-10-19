@@ -1,3 +1,7 @@
+## Contribution
+
+clone this repo, then `pull request`, we will see and merge if necessary, thanks anyway~
+
 ## Developing
 
 Start a dev server at `localhost:4000`:
