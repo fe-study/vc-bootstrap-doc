@@ -1,0 +1,35 @@
+<% var isIndex = page.path === 'index.html' %>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title><%- page.title ? page.title + ' - ' : '' %>vc-bootstrap</title>
+        <meta charset="utf-8">
+        <meta name="description" content="Vue component library -- vc-bootstrap">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <link rel="stylesheet" href="<%- theme.srcPath %>/css/bootstrap.min.css">
+        <link rel="stylesheet" href="<%- theme.srcPath %>/css/common.css">
+        <script>
+            window.PAGE_TYPE = "<%- page.type %>"
+        </script>
+        <%- css(isIndex ? 'css/index' : 'css/page') %>
+        <script src="<%- theme.srcPath %>/js/vue.js"></script>
+    </head>
+    <body>
+        <% if (!isIndex) { %>
+            <%- partial('partials/header') %>
+            <div id="main">
+                <% if (page.blog_index) { %>
+                    <%- partial('partials/blog') %>
+                <% } else { %>
+                    <%- body %>
+                <% } %>
+            </div>
+            <script src="<%- theme.srcPath %>/js/smooth-scroll.min.js"></script>
+            <script src="<%- theme.srcPath %>/js/common.js"></script>
+        <% } else { %>
+            <%- body %>
+        <% } %>
+        <script src="//cdn.bootcss.com/jquery/2.2.3/jquery.js"></script>
+        
+    </body>
+</html>
